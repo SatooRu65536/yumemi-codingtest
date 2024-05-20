@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { type ReactElement } from "react";
-import styles from "./page.module.css";
+import Image from 'next/image';
+import { type ReactElement } from 'react';
+import styles from './page.module.css';
 
 export default function Home(): ReactElement {
   return (
@@ -16,28 +16,14 @@ export default function Home(): ReactElement {
             rel="noopener noreferrer"
             target="_blank"
           >
-            By{" "}
-            <Image
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              height={24}
-              priority
-              src="/vercel.svg"
-              width={100}
-            />
+            By{' '}
+            <Image alt="Vercel Logo" className={styles.vercelLogo} height={24} priority src="/vercel.svg" width={100} />
           </a>
         </div>
       </div>
 
       <div className={styles.center}>
-        <Image
-          alt="Next.js Logo"
-          className={styles.logo}
-          height={37}
-          priority
-          src="/next.svg"
-          width={180}
-        />
+        <Image alt="Next.js Logo" className={styles.logo} height={37} priority src="/next.svg" width={180} />
       </div>
 
       <div className={styles.grid}>
@@ -86,9 +72,7 @@ export default function Home(): ReactElement {
           <h2>
             Deploy <span>-&gt;</span>
           </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
+          <p>Instantly deploy your Next.js site to a shareable URL with Vercel.</p>
         </a>
       </div>
     </main>
