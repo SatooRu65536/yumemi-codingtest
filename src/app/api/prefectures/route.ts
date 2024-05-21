@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { fetchPrefectures } from './prefectureFetcher';
 
-export async function GET(_req: Request): Promise<NextResponse> {
+export async function GET(): Promise<NextResponse> {
   const prefectures = await fetchPrefectures();
 
   if (prefectures === undefined) {
