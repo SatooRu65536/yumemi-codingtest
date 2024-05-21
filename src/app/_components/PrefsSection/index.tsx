@@ -2,7 +2,7 @@
 
 import { useAtomValue } from 'jotai';
 import { type ReactElement } from 'react';
-import PrefsList from './list';
+import PrefsList from './List';
 import { prefsAtom } from '@/stores/prefsAtom';
 
 export default function PrefsSection(): ReactElement {
