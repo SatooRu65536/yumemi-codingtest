@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 import { selectedPrefsAtom } from '@/stores/selectedPrefsAtom';
 
-type UsePrefs = [number[], change: (prefCode: number, isSelect: boolean) => void];
+type UsePrefs = [number[], (prefCode: number, isSelect: boolean) => void];
 
 export default function useSelectedPrefs(): UsePrefs {
   const [selectPrefCodes, setSelectPrefCodes] = useAtom(selectedPrefsAtom);
