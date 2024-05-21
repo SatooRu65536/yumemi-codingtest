@@ -1,0 +1,10 @@
+$color-accent: #089ce8;
+$color-text: #000;
+$color-background: #fff;
+
+$header-height: 70px;
+$footer-height: 44px;
+$main-padding-bottom: 50px;
+$main-height: calc(100vh - $header-height - $footer-height - $main-padding-bottom);
+
+$transition: all 0.3s ease-in-out;
