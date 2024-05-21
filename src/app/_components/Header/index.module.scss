@@ -1,0 +1,14 @@
+.header {
+  height: 60px;
+  background-color: rgba($color: $color-background, $alpha: 0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  z-index: 1000;
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
