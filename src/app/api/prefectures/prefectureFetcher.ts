@@ -1,4 +1,4 @@
-import { type Prefecture } from '@/app/types/prefecture';
+import { type Prefecture } from '@/types/prefecture';
 
 interface RESASPrefectureResponse {
   message: null;

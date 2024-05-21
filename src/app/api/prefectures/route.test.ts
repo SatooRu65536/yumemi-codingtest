@@ -1,5 +1,5 @@
 import { GET } from './route';
-import { type PrefectureResponse } from '@/app/types/prefecture';
+import { type PrefectureResponse } from '@/types/prefecture';
 
 describe('api /api/prefectures', () => {
   test('全ての都道府県を返すか', async () => {
