@@ -1,4 +1,9 @@
-import { type PrefectureResponse, type Prefecture } from '@/app/types/prefecture';
+import { type Prefecture } from '@/app/types/prefecture';
+
+interface RESASPrefectureResponse {
+  message: null;
+  result: Prefecture[];
+}
 
 export async function fetchPrefectures(): Promise<Prefecture[] | undefined> {
   const API_URL = process.env.RESAS_URL;
@@ -18,7 +23,7 @@ export async function fetchPrefectures(): Promise<Prefecture[] | undefined> {
       return await res.json();
     })
     .then((prefectureResponse) => {
-      const response: PrefectureResponse = prefectureResponse;
+      const response: RESASPrefectureResponse = prefectureResponse;
       return response.result;
     })
     .catch((error) => {

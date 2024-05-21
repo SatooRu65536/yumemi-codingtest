@@ -4,6 +4,5 @@ export interface Prefecture {
 }
 
 export interface PrefectureResponse {
-  message: null;
-  result: Prefecture[];
+  prefectures: Prefecture[];
 }
