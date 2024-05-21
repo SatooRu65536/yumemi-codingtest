@@ -9,7 +9,9 @@
     "format": "prettier --write ./src/",
     "format:ci": "prettier --check ./src/",
     "lint": "eslint --ext .ts,.tsx ./src --fix",
-    "lint:ci": "eslint --ext .ts,.tsx ./src"
+    "lint:ci": "eslint --ext .ts,.tsx ./src",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "next": "14.2.3",
@@ -17,6 +19,16 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.4.0",
+    "@storybook/addon-essentials": "^8.1.1",
+    "@storybook/addon-interactions": "^8.1.1",
+    "@storybook/addon-links": "^8.1.1",
+    "@storybook/addon-onboarding": "^8.1.1",
+    "@storybook/addon-styling-webpack": "^1.0.0",
+    "@storybook/blocks": "^8.1.1",
+    "@storybook/nextjs": "^8.1.1",
+    "@storybook/react": "^8.1.1",
+    "@storybook/test": "^8.1.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -38,6 +50,7 @@
     "eslint-plugin-unused-imports": "^3.2.0",
     "prettier": "^3.2.5",
     "sass": "^1.77.2",
+    "storybook": "^8.1.1",
     "typescript": "5.1"
   }
 }
