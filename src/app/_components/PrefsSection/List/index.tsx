@@ -1,21 +1,35 @@
+import { hash } from 'ohash';
 import { type ReactElement } from 'react';
+import PrefCheckbox from './checkbox';
 import styles from './index.module.scss';
-import PrefSelect from './select';
 import { type Prefecture } from '@/types/prefecture';
 
 interface Props {
   prefs: Prefecture[] | undefined;
+  selectedPrefCodes: number[];
+  changeSelectedState: (prefCode: number, isSelect: boolean) => void;
 }
 
 export default function PrefsList(props: Props): ReactElement {
-  const { prefs } = props;
+  const { prefs, changeSelectedState, selectedPrefCodes } = props;
 
   return (
     <section className={styles.section}>
       <h2>都道府県</h2>
 
       <div className={styles.prefs_container}>
-        {prefs?.map((pref) => <PrefSelect key={pref.prefCode} pref={pref} />)}
+        {prefs?.map((pref) => {
+          const selected = selectedPrefCodes.includes(pref.prefCode);
+
+          return (
+            <PrefCheckbox
+              key={hash({ prefCode: pref.prefCode, selected })}
+              changeSelectedState={changeSelectedState}
+              checked={selected}
+              pref={pref}
+            />
+          );
+        })}
       </div>
     </section>
   );
