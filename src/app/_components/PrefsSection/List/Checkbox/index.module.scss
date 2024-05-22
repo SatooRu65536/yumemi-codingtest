@@ -1,0 +1,15 @@
+.select {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+
+  input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    accent-color: $color-accent;
+  }
+
+  label {
+    padding-left: 10px;
+  }
+}
