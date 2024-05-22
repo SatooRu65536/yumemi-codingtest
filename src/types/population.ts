@@ -1,11 +1,17 @@
+import { type POPULATION_TYPES } from '@/consts/populations';
+
 export interface YearPopulation {
   year: number;
   value: number;
 }
 
-export type PopulationType = '総人口' | '年少人口' | '生産年齢人口' | '老年人口';
+export type PopulationType = (typeof POPULATION_TYPES)[number];
 
 export interface Population {
   label: PopulationType;
   data: YearPopulation[];
+}
+
+export interface PopulationResponse {
+  populations: Population[];
 }
