@@ -5,7 +5,7 @@ import useSelectedPrefs from '@/hooks/useSelectedPrefs';
 import { type Prefecture } from '@/types/prefecture';
 
 const meta = {
-  title: 'PrefsList',
+  title: 'PrefsSection/List',
   component: PrefsList,
   tags: ['autodocs'],
 } satisfies Meta<typeof PrefsList>;
