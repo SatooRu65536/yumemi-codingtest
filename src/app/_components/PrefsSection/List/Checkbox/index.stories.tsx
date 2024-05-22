@@ -5,7 +5,7 @@ import useSelectedPrefs from '@/hooks/useSelectedPrefs';
 import { type Prefecture } from '@/types/prefecture';
 
 const meta = {
-  title: 'PrefCheckbox',
+  title: 'PrefsSection/Checkbox',
   component: PrefCheckbox,
   tags: ['autodocs'],
 } satisfies Meta<typeof PrefCheckbox>;
