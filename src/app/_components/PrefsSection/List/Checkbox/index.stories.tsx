@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react';
 import { type ReactElement } from 'react';
-import PrefCheckbox from './checkbox';
+import PrefCheckbox from '.';
 import useSelectedPrefs from '@/hooks/useSelectedPrefs';
 import { type Prefecture } from '@/types/prefecture';
 

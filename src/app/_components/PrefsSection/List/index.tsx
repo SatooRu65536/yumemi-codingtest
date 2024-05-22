@@ -1,6 +1,6 @@
 import { hash } from 'ohash';
 import { type ReactElement } from 'react';
-import PrefCheckbox from './checkbox';
+import PrefCheckbox from './Checkbox';
 import styles from './index.module.scss';
 import { type Prefecture } from '@/types/prefecture';
 

@@ -1,5 +1,5 @@
 import { useId, type ReactElement } from 'react';
-import styles from './checkbox.module.scss';
+import styles from './index.module.scss';
 import { type Prefecture } from '@/types/prefecture';
 
 interface Props {
