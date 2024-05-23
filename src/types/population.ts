@@ -14,4 +14,5 @@ export interface Population {
 
 export interface PopulationResponse {
   populations: Population[];
+  prefCode: number;
 }

@@ -16,5 +16,5 @@ export async function GET(_req: NextRequest, { params }: { params: { prefCode: s
     return NextResponse.json({ message: 'Bad Request. Please specify prefCode.' }, { status: 400 });
   }
 
-  return NextResponse.json({ populations }, { status: 200 });
+  return NextResponse.json({ populations, prefCode }, { status: 200 });
 }
