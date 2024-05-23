@@ -1,8 +1,8 @@
 import { atom } from 'jotai';
 import { atomFamily } from 'jotai/utils';
-import { type PopulationResponse, type Population } from '@/types/population';
+import { type PrefPopulations, type Population } from '@/types/population';
 
-async function populationFetch(prefCode: number): Promise<Population[] | undefined> {
+async function populationFetch(prefCode: number): Promise<PrefPopulations | undefined> {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   if (API_URL === undefined) throw new Error('NEXT_PUBLIC_API_URL is not defined');
@@ -14,8 +14,8 @@ async function populationFetch(prefCode: number): Promise<Population[] | undefin
       return await res.json();
     })
     .then((prefectureResponse) => {
-      const response: PopulationResponse = prefectureResponse;
-      return response.populations;
+      const response: PrefPopulations = prefectureResponse;
+      return response;
     })
     .catch((error) => {
       console.error(error);
