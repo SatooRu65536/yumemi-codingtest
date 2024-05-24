@@ -1,6 +1,7 @@
 import { atom } from 'jotai';
 import { atomFamily } from 'jotai/utils';
-import { type PrefPopulations, type Population } from '@/types/population';
+import { selectedPrefsAtom } from './selectedPrefsAtom';
+import { type PrefPopulations } from '@/types/population';
 
 async function populationFetch(prefCode: number): Promise<PrefPopulations | undefined> {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -25,15 +26,14 @@ async function populationFetch(prefCode: number): Promise<PrefPopulations | unde
   return prefectures;
 }
 
-const populationsAtom = atom<Population[]>([]);
+const prefPopulationAtomFamily = atomFamily((prefCode: number) => atom(async () => await populationFetch(prefCode)));
 
-export const populationFamilyAtom = atomFamily((prefCode: number) =>
-  atom(async (get, _set) => {
-    const populations = get(populationsAtom);
-    const population = await populationFetch(prefCode);
+export const PrefpopulationsListAtom = atom(async (get) => {
+  const selectedPrefs = get(selectedPrefsAtom);
+  const prefPopulationsPromise = selectedPrefs.map(async (prefCode) => await get(prefPopulationAtomFamily(prefCode)));
+  const prefPopulationsList = await Promise.all(prefPopulationsPromise);
 
-    if (population === undefined) return populations;
-
-    return [...populations, population];
-  }),
-);
+  return prefPopulationsList.filter(
+    (prefPopulations): prefPopulations is PrefPopulations => prefPopulations !== undefined,
+  );
+});

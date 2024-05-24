@@ -2,15 +2,17 @@
 
 import { useAtomValue } from 'jotai';
 import { type ReactElement } from 'react';
-import { selectedPrefsAtom } from '@/stores/selectedPrefsAtom';
+import { PrefpopulationsListAtom } from '@/stores/populationAtom';
 
 export default function PopulationChart(): ReactElement {
-  const selectedPrefs = useAtomValue(selectedPrefsAtom);
+  const prefPopulationsList = useAtomValue(PrefpopulationsListAtom);
 
   return (
     <div>
-      {selectedPrefs.map((prefCode) => (
-        <div key={prefCode}>{prefCode}</div>
+      {prefPopulationsList.map((prefPopulations) => (
+        <div key={prefPopulations.prefCode}>
+          {prefPopulations.prefCode}:{prefPopulations.populations[0].label}
+        </div>
       ))}
     </div>
   );
