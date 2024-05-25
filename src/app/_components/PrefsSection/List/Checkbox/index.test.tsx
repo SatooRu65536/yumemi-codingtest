@@ -24,7 +24,7 @@ function TestPrefCheckbox(): ReactElement {
   );
 }
 
-describe('components Header', () => {
+describe('components PrefCheckbox', () => {
   test('チェックボックスを選択できるか', () => {
     render(<TestPrefCheckbox />);
 
