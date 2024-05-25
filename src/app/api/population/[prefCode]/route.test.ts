@@ -1,7 +1,7 @@
 import { type NextRequest } from 'next/server';
 import { GET } from './route';
 import { POPULATION_TYPES } from '@/consts/populations';
-import { type PopulationResponse } from '@/types/population';
+import { type PrefPopulations } from '@/types/population';
 
 describe('api /api/prefectures', () => {
   test('全てのタイプを返すか', async () => {
@@ -15,7 +15,7 @@ describe('api /api/prefectures', () => {
 
     expect(response.status).toBe(200);
 
-    const prefecturesResponse: PopulationResponse = await response.json();
+    const prefecturesResponse: PrefPopulations = await response.json();
 
     // 全てのタイプが含まれている
     const populationTypes = prefecturesResponse.populations.map((population) => population.label);

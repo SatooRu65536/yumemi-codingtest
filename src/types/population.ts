@@ -12,6 +12,7 @@ export interface Population {
   data: YearPopulation[];
 }
 
-export interface PopulationResponse {
+export interface PrefPopulations {
   populations: Population[];
+  prefCode: number;
 }
