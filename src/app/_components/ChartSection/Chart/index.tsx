@@ -40,7 +40,15 @@ export default function PopulationChart(props: Props): ReactElement {
     <section className={styles.section}>
       <h2>{populationType}推移</h2>
       <PopulationTypeSelector />
-      <HighchartsReact highcharts={Highcharts} options={options} />
+      <div className={styles.chart_container}>
+        {data.length === 0 && (
+          <div className={styles.message_area}>
+            <p>都道府県を選択してください</p>
+          </div>
+        )}
+
+        <HighchartsReact highcharts={Highcharts} options={options} />
+      </div>
     </section>
   );
 }
