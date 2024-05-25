@@ -1,14 +1,16 @@
 .header {
-  height: 60px;
-  background-color: rgba($color: $color-background, $alpha: 0.5);
+  height: 50px;
+  color: $color-background;
+  background-color: rgba($color: $color-accent, $alpha: 0.8);
   backdrop-filter: blur(2px);
   display: flex;
   justify-content: center;
   align-items: center;
   position: sticky;
+  top: 0;
   z-index: 1000;
 
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
 }
