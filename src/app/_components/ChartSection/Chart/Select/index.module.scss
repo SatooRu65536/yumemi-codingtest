@@ -1,0 +1,15 @@
+.combobox {
+  padding: 10px 20px;
+  text-align: right;
+
+  label {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  select {
+    padding: 3px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+}

@@ -18,8 +18,8 @@ export default function PopulationTypeSelector(): ReactElement {
   }
 
   return (
-    <section className={styles.section}>
-      <label htmlFor={id}>人口種別: </label>
+    <div className={styles.combobox}>
+      <label htmlFor={id}>人口種別:</label>
       <select id={id} onChange={changePopulationType} value={populationType}>
         {POPULATION_TYPES.map((type) => (
           <option key={type} value={type}>
@@ -27,6 +27,6 @@ export default function PopulationTypeSelector(): ReactElement {
           </option>
         ))}
       </select>
-    </section>
+    </div>
   );
 }

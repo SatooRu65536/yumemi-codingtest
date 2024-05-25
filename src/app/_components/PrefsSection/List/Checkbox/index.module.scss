@@ -4,12 +4,14 @@
   align-items: center;
 
   input[type='checkbox'] {
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
     accent-color: $color-accent;
+    cursor: pointer;
   }
 
   label {
     padding-left: 10px;
+    cursor: pointer;
   }
 }

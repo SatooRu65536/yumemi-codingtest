@@ -3,7 +3,6 @@
 import { useAtomValue } from 'jotai';
 import { type ReactElement } from 'react';
 import PopulationChart, { type ChartData } from './Chart';
-import PopulationTypeSelector from './Select';
 import { PrefpopulationsListAtom } from '@/stores/populationAtom';
 import { prefsAtom } from '@/stores/prefsAtom';
 import { selectedPopulationAtom } from '@/stores/selectedPopulationAtom';
@@ -34,10 +33,5 @@ export default function ChartSection(): ReactElement {
       ?.populations.at(0)
       ?.data.map((d) => d.year.toString()) ?? [];
 
-  return (
-    <>
-      <PopulationTypeSelector />
-      <PopulationChart data={chartData} populationType={populationType} years={years} />
-    </>
-  );
+  return <PopulationChart data={chartData} populationType={populationType} years={years} />;
 }
