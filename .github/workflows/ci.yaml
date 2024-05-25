@@ -37,4 +37,4 @@ jobs:
       - name: Run Prettier
         run: yarn format:ci
       - name: Run Vitest
-        run: yarn test :ci
+        run: yarn test:ci
