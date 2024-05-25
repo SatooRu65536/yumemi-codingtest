@@ -1,4 +1,4 @@
-name: ESLint & Prettier
+name: ESLint & Prettier & Vitest
 
 on:
   push:
@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   lint:
-    name: Linters
+    name: CI
     runs-on: ubuntu-latest
 
     steps:
@@ -27,12 +27,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          cache: "yarn"
+          cache: 'yarn'
 
       - name: Install dependencies
         run: yarn install
 
-      - name: Lint
-        run: |
-          yarn lint:ci
-          yarn format:ci
+      - name: Run ESLint
+        run: yarn lint:ci
+      - name: Run Prettier
+        run: yarn format:ci
+      - name: Run Vitest
+        run: yarn test :ci
