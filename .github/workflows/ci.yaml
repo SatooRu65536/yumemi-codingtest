@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: setup environments
+        run: echo "${{ secrets.ENVIRONMENTS }}" > .env.test.local
+
       - name: Run ESLint
         run: yarn lint:ci
       - name: Run Prettier
