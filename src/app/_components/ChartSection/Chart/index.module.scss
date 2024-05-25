@@ -1,11 +1,13 @@
 .section {
-  padding: 10px 20px;
-  margin-inline: auto;
+  padding: 0px 20px;
+  margin: 40px auto;
   max-width: 900px;
-  height: 400px;
 
-  .chart {
-    width: 100%;
-    height: 100%;
+  h2 {
+    text-align: center;
+  }
+
+  & > div:has([class*='highcharts-container']) {
+    height: 600px;
   }
 }

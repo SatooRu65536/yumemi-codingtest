@@ -1,6 +1,7 @@
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { type ReactElement } from 'react';
+import PopulationTypeSelector from './Select';
 import styles from './index.module.scss';
 import { type PopulationType } from '@/types/population';
 
@@ -20,9 +21,7 @@ export default function PopulationChart(props: Props): ReactElement {
   const { data, populationType, years } = props;
 
   const options: Highcharts.Options = {
-    title: {
-      text: `${populationType}推移`,
-    },
+    title: undefined,
     xAxis: {
       title: {
         text: '年',
@@ -39,6 +38,8 @@ export default function PopulationChart(props: Props): ReactElement {
 
   return (
     <section className={styles.section}>
+      <h2>{populationType}推移</h2>
+      <PopulationTypeSelector />
       <HighchartsReact highcharts={Highcharts} options={options} />
     </section>
   );
