@@ -81,4 +81,20 @@ describe('components Header', () => {
 
     expect(graphTitle).toBeDefined();
   });
+
+  test('データがない時にメッセージが表示されるか', () => {
+    render(<PopulationChart data={[]} populationType="総人口" years={years} />);
+
+    const message = screen.queryByText('都道府県を選択してください');
+
+    expect(message).toBeDefined();
+  });
+
+  test('データがある時にメッセージが表示されないか', () => {
+    render(<PopulationChart data={data} populationType="総人口" years={years} />);
+
+    const message = screen.queryByText('都道府県を選択してください');
+
+    expect(message).toBeNull();
+  });
 });

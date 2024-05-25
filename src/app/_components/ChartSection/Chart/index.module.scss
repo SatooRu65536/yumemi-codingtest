@@ -7,7 +7,24 @@
     text-align: center;
   }
 
-  & > div:has([class*='highcharts-container']) {
+  & > .chart_container {
     height: 600px;
+    position: relative;
+
+    .message_area {
+      margin: auto;
+      background-color: $color-background;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    div:has([class*='highcharts-container']) {
+      height: 100%;
+    }
   }
 }
