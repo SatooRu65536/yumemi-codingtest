@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import PopulationTypeSelector from '.';
 
-describe('PopulationTypeSelector', () => {
+describe('components PopulationTypeSelector', () => {
   test('タイトルが正しく表示されているか', () => {
     render(<PopulationTypeSelector />);
 

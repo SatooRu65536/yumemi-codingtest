@@ -205,7 +205,7 @@ function TestPrefList(): ReactElement {
   );
 }
 
-describe('components Header', () => {
+describe('components PrefList', () => {
   test('チェックボックスが全て表示されているか', () => {
     render(<TestPrefList />);
 
