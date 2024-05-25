@@ -16,6 +16,8 @@
     "test": "vitest"
   },
   "dependencies": {
+    "highcharts": "^11.4.3",
+    "highcharts-react-official": "^3.2.1",
     "jotai": "^2.8.0",
     "next": "14.2.3",
     "ohash": "^1.1.3",
