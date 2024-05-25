@@ -27,7 +27,11 @@ export default function ChartSection(): ReactElement {
     };
   });
 
-  const years = prefPopulationsList[0].populations[0].data.map((d) => d.year.toString()) ?? [];
+  const years =
+    prefPopulationsList
+      .at(0)
+      ?.populations.at(0)
+      ?.data.map((d) => d.year.toString()) ?? [];
 
   return <PopulationChart data={chartData} populationType={populationType} years={years} />;
 }
