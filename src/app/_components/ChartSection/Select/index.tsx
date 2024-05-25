@@ -1,5 +1,6 @@
 import { useSetAtom } from 'jotai';
 import { type ChangeEvent, useId, type ReactElement } from 'react';
+import styles from './index.module.scss';
 import { POPULATION_TYPES } from '@/consts/populations';
 import { selectedPopulationAtom } from '@/stores/selectedPopulationAtom';
 import { type PopulationType } from '@/types/population';
@@ -17,8 +18,8 @@ export default function PopulationTypeSelector(): ReactElement {
   }
 
   return (
-    <>
-      <label htmlFor={id}>hi</label>
+    <section className={styles.section}>
+      <label htmlFor={id}>人口種別: </label>
       <select id={id} onChange={changePopulationType}>
         {POPULATION_TYPES.map((type) => (
           <option key={type} value={type}>
@@ -26,7 +27,6 @@ export default function PopulationTypeSelector(): ReactElement {
           </option>
         ))}
       </select>
-      ;
-    </>
+    </section>
   );
 }
