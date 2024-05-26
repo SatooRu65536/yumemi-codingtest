@@ -3,7 +3,7 @@ import PopulationChart, { type ChartData } from '.';
 import { type PopulationType } from '@/types/population';
 
 const meta = {
-  title: 'ChartSection/PopulationChart',
+  title: 'ChartSection/Chart',
   component: PopulationChart,
   tags: ['autodocs'],
 } satisfies Meta<typeof PopulationChart>;
