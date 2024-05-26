@@ -30,7 +30,7 @@ export async function fetchPopulation(prefCode: number): Promise<Population[] | 
     })
     .then((prefectureResponse) => {
       const response: RESASPopulationResponse = prefectureResponse;
-      return response.result.data;
+      return response.result?.data;
     })
     .catch((error) => {
       console.error(error);
