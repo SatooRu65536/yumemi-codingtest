@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config({ path: '.env.test.local' });
 
 const baseURL = 'http://localhost:3000';
 
