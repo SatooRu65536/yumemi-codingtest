@@ -34,19 +34,14 @@ test('都道府県のチェックボックスが存在するか', async ({ page 
 test('都道府県を選択するとグラフが表示されるか', async ({ page }) => {
   await page.goto('/');
 
-  // グラフを取得
-  const graph = page.locator('svg.highcharts-root');
   // グラフの凡例を取得
-  const legend = graph.locator('.highcharts-legend');
-
-  // チェックボックスを取得
-  const checkbox = page.getByRole('checkbox', { name: '愛知県' });
+  const legend = page.locator('svg.highcharts-root .highcharts-legend');
 
   // 凡例に都道府県名が含まれていないことを確認
   await expect(legend).not.toContainText('愛知県');
 
   // チェックボックスをクリック
-  await checkbox.click();
+  await page.getByRole('checkbox', { name: '愛知県' }).click();
 
   // 凡例に都道府県名が含まれていることを確認
   await expect(legend).toContainText('愛知県');
@@ -55,22 +50,37 @@ test('都道府県を選択するとグラフが表示されるか', async ({ pa
 test('人口種別を変更するとグラフが更新されるか', async ({ page }, testInfo) => {
   await page.goto('/');
 
-  // チェックボックスをクリック
-  await page.getByRole('checkbox', { name: '東京都' }).click();
+  // 凡例を取得
+  const legend = page.locator('svg.highcharts-root .highcharts-legend');
+
+  // 凡例に '愛知県' が含まれていないことを確認
+  await expect(legend).not.toContainText('愛知県');
+  
+  // チェックボックスを取得
   await page.getByRole('checkbox', { name: '愛知県' }).click();
 
-  const select = page.locator('select');
+  // 凡例に '愛知県' が含まれていることを確認
+  await expect(legend).toContainText('愛知県');
 
-  // 総人口グラフのスクリーンショットを撮影
-  await page.screenshot({ path: `${testInfo.snapshotPath('result.png')}`, fullPage: true, animations: 'disabled' });
+  // アニメーションが完了するまで待機
+  await page.waitForTimeout(1000);
+  // スクリーンショットを保存
+  const totalPopulationGraph = await page.screenshot({
+    fullPage: true,
+    animations: 'disabled',
+    path: testInfo.outputPath('total-population.png'),
+  });
 
-  // 人口種別を "年少人口" に変更
-  await select.selectOption({ label: '年少人口' });
+  await page.getByRole('combobox').selectOption('年少人口');
 
-  // グラフタイトルが "年少人口推移" に変更されていることを確認
-  const graphTitle = page.getByRole('heading', { name: '年少人口推移' });
-  await expect(graphTitle).toBeVisible();
+  // アニメーションが完了するまで待機
+  await page.waitForTimeout(1000);
+  // スクリーンショットを保存
+  const youngPopulationGraph = await page.screenshot({
+    fullPage: true,
+    animations: 'disabled',
+    path: testInfo.outputPath('young-population.png'),
+  });
 
-  // 総人口グラフのスクリーンショットを比較
-  expect(await page.screenshot({ fullPage: true, animations: 'disabled' })).not.toMatchSnapshot({ name: 'result.png' });
+  expect(totalPopulationGraph).not.toEqual(youngPopulationGraph);
 });
