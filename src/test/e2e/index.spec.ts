@@ -55,7 +55,7 @@ test('人口種別を変更するとグラフが更新されるか', async ({ pa
 
   // 凡例に '愛知県' が含まれていないことを確認
   await expect(legend).not.toContainText('愛知県');
-  
+
   // チェックボックスを取得
   await page.getByRole('checkbox', { name: '愛知県' }).click();
 
