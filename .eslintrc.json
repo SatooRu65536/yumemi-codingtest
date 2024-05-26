@@ -9,7 +9,8 @@
     "standard-with-typescript",
     "plugin:react/recommended",
     "prettier",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "plugin:@next/next/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
