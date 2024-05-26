@@ -34,6 +34,9 @@ export default function PopulationChart(props: Props): ReactElement {
       },
     },
     series: data,
+    accessibility: {
+      enabled: false,
+    }
   };
 
   return (
