@@ -14,7 +14,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest",
-    "test:ci": "vitest --run"
+    "test:e2e": "playwright test",
+    "test:report": "playwright show-report",
+    "test:ci": "vitest --run && playwright test"
   },
   "dependencies": {
     "highcharts": "^11.4.3",
@@ -27,6 +29,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.4.0",
+    "@playwright/test": "^1.44.1",
     "@storybook/addon-essentials": "^8.1.1",
     "@storybook/addon-interactions": "^8.1.1",
     "@storybook/addon-links": "^8.1.1",
@@ -42,6 +45,7 @@
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^7.10.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "dotenv": "^16.4.5",
     "eslint": "8",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^18.0.0",
